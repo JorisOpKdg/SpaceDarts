@@ -39,9 +39,19 @@ public class HighScoreTable : MonoBehaviour
 
         // Creating the final top 10 scores
         highScoreEntryTransformList = new List<Transform>();
-        for (int i = 0; i < 10; i++)
+        if (highScores.highScoreEntries.Count > 10)
         {
-            CreateHighScoreEntryTransform(highScores.highScoreEntries[i], entryContainer, highScoreEntryTransformList);
+            for (int i = 0; i < 10; i++)
+            {
+                CreateHighScoreEntryTransform(highScores.highScoreEntries[i], entryContainer, highScoreEntryTransformList);
+            }
+        }
+        else
+        {
+            foreach (HighScoreManager.HighScoreEntry highScoreEntry in highScores.highScoreEntries)
+            {
+                CreateHighScoreEntryTransform(highScoreEntry, entryContainer, highScoreEntryTransformList);
+            }
         }
     }
 
