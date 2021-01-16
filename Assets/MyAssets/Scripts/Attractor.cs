@@ -1,0 +1,43 @@
+﻿using UnityEngine;
+
+// Calculates the attraction force of the planets 
+public class Attractor : MonoBehaviour
+{
+    // Gravitational force
+    const float G = 0.6674f;
+
+    private Rigidbody rbOfPlanet;
+
+    [SerializeField]
+    private Rigidbody rocket;
+
+    private void Start()
+    {
+        rbOfPlanet = gameObject.GetComponent<Rigidbody>();
+    }
+
+    void FixedUpdate()
+    {
+        if (!StateManager.Instance.TargetDestroyed)
+        {
+            Attract(rocket);
+        }
+    }
+
+    void Attract(Rigidbody rbOfRocket)
+    {
+        // Calculates the direction of the rocket
+        Vector3 direction = rbOfPlanet.position - rbOfRocket.position;
+
+        // Calculates the distance of the rocket
+        float distance = direction.magnitude;
+
+        // Formula: F = ((m1 * m2) / d²) * G
+        float forceMagnitude = (rbOfPlanet.mass * rbOfRocket.mass) / Mathf.Pow(distance, 2) * G;
+
+        // Calculates the attraction force and directon
+        Vector3 force = direction.normalized * forceMagnitude;
+
+        rbOfRocket.AddForce(force);
+    }
+}
