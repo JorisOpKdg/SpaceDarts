@@ -54,8 +54,8 @@ public class GameManager : MonoBehaviour
         DateTime date = DateTime.Now;
         string dateString = date.ToString("MM/dd/yyyy h:mm:ss");
 
-        highScoreManager.CreateStartDataOfHighScores();
-        //highScoreManager.SaveHighScore(attempts, time, expeditionName, dateString);
+        //highScoreManager.CreateStartDataOfHighScores();
+        highScoreManager.SaveHighScore(attempts, time, expeditionName, dateString);
 
         StateManager.Instance.ResetToDefault();
         SceneManager.LoadScene("MenuScene");
