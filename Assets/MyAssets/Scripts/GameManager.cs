@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 // Manages the overall game
 public class GameManager : MonoBehaviour
 {
+    private SceneLoaderManager sceneLoaderManager;
     private GameCanvasManager canvasManager;
     private HighScoreManager highScoreManager;
 
@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     {
         canvasManager = GameObject.Find("GameCanvas").GetComponent<GameCanvasManager>();
         highScoreManager = GameObject.Find("GameController").GetComponent<HighScoreManager>();
+        sceneLoaderManager = GameObject.Find("SceneLoader").GetComponent<SceneLoaderManager>();
     }
 
     void Update()
@@ -58,7 +59,7 @@ public class GameManager : MonoBehaviour
         highScoreManager.SaveHighScore(attempts, time, expeditionName, dateString);
 
         StateManager.Instance.ResetToDefault();
-        SceneManager.LoadScene("MenuScene");
+        sceneLoaderManager.LoadNextScene("MenuScene");
     }
 
     public void Retry()
@@ -69,16 +70,16 @@ public class GameManager : MonoBehaviour
         switch (StateManager.Instance.MissionName)
         {
             case "Moon":
-                SceneManager.LoadScene("LaunchMoonScene");
+                sceneLoaderManager.LoadNextScene("LaunchMoonScene");
                 break;
             case "Mars":
-                SceneManager.LoadScene("LaunchMarsScene");
+                sceneLoaderManager.LoadNextScene("LaunchMarsScene");
                 break;
             case "Jupiter":
-                SceneManager.LoadScene("LaunchJupiterScene");
+                sceneLoaderManager.LoadNextScene("LaunchJupiterScene");
                 break;
             default:
-                SceneManager.LoadScene("MenuScene");
+                sceneLoaderManager.LoadNextScene("MenuScene");
                 break;
         }
     }
@@ -86,6 +87,6 @@ public class GameManager : MonoBehaviour
     public void Exit()
     {
         StateManager.Instance.ResetToDefault();
-        SceneManager.LoadScene("MenuScene");
+        sceneLoaderManager.LoadNextScene("MenuScene");
     }
 }

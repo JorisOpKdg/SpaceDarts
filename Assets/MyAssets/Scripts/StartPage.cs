@@ -1,12 +1,18 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 
 // Starts the menu scene
 public class StartPage : MonoBehaviour
 {
+    SceneLoaderManager sceneLoaderManager;
+
+    private void Start()
+    {
+        sceneLoaderManager = GameObject.Find("SceneLoader").GetComponent<SceneLoaderManager>();
+    }
+
     public void StartMenuScene()
     {
-        SceneManager.LoadScene("MenuScene");
+        sceneLoaderManager.LoadNextScene("MenuScene");
         Debug.Log("MenuScene started...");
     }
 }
