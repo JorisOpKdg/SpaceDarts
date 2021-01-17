@@ -3,7 +3,7 @@
 // Calculates the attraction force of the planets 
 public class Attractor : MonoBehaviour
 {
-    // Gravitational force
+    // Gravitational constant
     const float G = 0.6674f;
 
     private Rigidbody rbOfPlanet;
@@ -13,7 +13,7 @@ public class Attractor : MonoBehaviour
 
     private void Start()
     {
-        rbOfPlanet = gameObject.GetComponent<Rigidbody>();
+        rbOfPlanet = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
