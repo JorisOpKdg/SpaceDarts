@@ -15,7 +15,9 @@ public class Rotator : MonoBehaviour {
     [SerializeField]
     private float zAngle = 0;
 
-    void Update() {
+    // Aanpassing na indienen project
+    private void FixedUpdate()
+    {
         transform.Rotate(xAngle * speed * Time.deltaTime, yAngle * speed * Time.deltaTime, zAngle * speed * Time.deltaTime);
     }
 }

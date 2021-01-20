@@ -226,6 +226,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Planet
       objectReference: {fileID: 0}
+    - target: {fileID: 4793232086882028137, guid: 8b5676edf744a214681ef6eef9ba5a45,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b5676edf744a214681ef6eef9ba5a45, type: 3}
 --- !u!114 &60076766 stripped
@@ -2165,6 +2170,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Planet
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793232086882028137, guid: e7b4fa801e21d134a8431d2cd1d32f32,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7b4fa801e21d134a8431d2cd1d32f32, type: 3}
