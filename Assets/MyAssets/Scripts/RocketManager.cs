@@ -90,7 +90,7 @@ public class RocketManager : MonoBehaviour
             gameManager.TargetHit();
             Debug.Log("Target hit!");
 
-            // stops the rocket from bouncing back
+            // stops the rocket from attracting towarts other planets
             gameObject.GetComponent<Rigidbody>().isKinematic = true;
         }
     }
