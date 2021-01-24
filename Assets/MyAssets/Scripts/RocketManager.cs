@@ -50,11 +50,7 @@ public class RocketManager : MonoBehaviour
             rocketLaunched = true;
             Debug.Log("Rocket launched!");
         }
-    }
 
-    // Aanpassing na indienen project
-    private void FixedUpdate()
-    {
         // Move our position a step closer to the target every frame
         if (rocketLaunched && target != null)
         {
